@@ -34,6 +34,8 @@ header
     display: flex;
     flex-direction: column;
     text-align: center;
+    width: 100%;
+    padding-right: 80px;
 }
 
 .p 
@@ -110,7 +112,7 @@ h2
    color: coral;
 }
 
-.product
+#product
 {
    justify-content: center;
    display: flex;
@@ -153,10 +155,9 @@ h2
 
 .produit
 {
-   margin-left: 80px;
-   margin-top: 50px;
    text-align: center;
-   width: 30%;
+   width: 50%;
+    margin: auto;
 }
 
 .name
@@ -168,6 +169,34 @@ h2
 {
     font-size: 30px;
     margin-top: 40px;
+}
+
+.button
+{
+    padding: 5px;
+    box-shadow: 0 2px 2px 0;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 20px;
+    width: 50%;
+    margin: auto;
+    background-color: blanchedalmond;
+}
+
+.button:hover
+{
+    background-color: greenyellow;
+    transition: 2s;
+}
+
+.button a 
+{
+    text-decoration: none;
+}
+
+.bnt 
+{
+    color: black;
 }
 
 /* footer*/
