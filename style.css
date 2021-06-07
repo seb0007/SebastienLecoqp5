@@ -1,0 +1,208 @@
+body
+{
+    width: auto;
+    height: auto;
+}
+
+
+header
+{
+    width: 100%;
+}
+
+.entete
+{
+    display: flex;
+    background-color: beige;
+    justify-content: space-between;
+    height: 200px;
+}
+
+.conteneur
+{
+    display: flex;
+}
+
+.logo_ori
+{
+    width: 100%;
+    height: 100%;
+}
+
+.titre
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.p 
+{
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.accueil
+{
+    border: solid purple 2px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: black;
+}
+
+.accueil a
+{
+    text-decoration: none;
+}
+
+.accueil:hover
+{
+    background-color: coral;
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.panier
+{
+    border: solid purple 2px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+.panier a 
+{
+   text-decoration: none;
+}
+
+.panier:hover
+{
+    background-color: coral;
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+ul 
+{
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+.fa-shopping-cart
+{
+    padding-left: 10px;
+}
+
+/*MAIN*/
+
+main
+{
+    width: auto;
+    height: auto;
+}
+
+h2
+{
+   text-align: center;
+   color: coral;
+}
+
+.product
+{
+   justify-content: center;
+   display: flex;
+   animation: apparition 2s ease-in;
+   flex-direction: column;
+}
+
+@keyframes apparition
+{
+    from { opacity: 0;
+    transform: translateY(-30px);}
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+.image
+{
+    height: 100%;
+    width: 50%;
+}
+
+.image:hover
+{
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.list_produit
+{
+    display: flex;
+    background-color: coral;
+    padding: 10px;
+    width: 40%;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.produit
+{
+   margin-left: 80px;
+   margin-top: 50px;
+   text-align: center;
+}
+
+.title
+{
+    font-size: 30px;
+}
+
+.price
+{
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+/* footer*/
+footer 
+{
+    margin-top: 150px;
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    background-color: beige;
+}
+
+ul
+{
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+    color: black;
+}
+
+
+.renseignement
+{
+    border: purple solid 2px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px;
+}
+
+li:hover 
+{
+    background-color: coral;
+    transition: 1s;
+    transform: scale(1.1);
+}
+
+.fa-truck
+{
+    padding-left: 10px;
+}
+
