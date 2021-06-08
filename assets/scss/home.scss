@@ -161,7 +161,7 @@ h2
     margin: auto;
       .name
       {
-         font-size: 30px;
+         font-size: 40px;
 
          .price
            {
@@ -169,7 +169,7 @@ h2
                 margin-top: 40px;
            }
         }
-    }                
+    }      
 
 .button
 {
@@ -184,19 +184,21 @@ h2
 
         &:hover{
              background-color: greenyellow;
-            transition: 2s;
-        
-            .button a 
-              {
-                  text-decoration: none;
-
-                    .bnt
-                    {
-                        color: black;
-                    }
-              }
+             transition: 2s;
         }
-}         
+    }
+        
+.button a 
+{
+ text-decoration: none;
+}  
+
+.bnt
+{
+ color: black;
+}
+              
+                 
 
 
 /* footer*/
