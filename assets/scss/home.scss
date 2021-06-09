@@ -21,6 +21,7 @@ header
 .conteneur
 {
     display: flex;
+    width: 20%;
 }
 
 .logo_ori
@@ -29,13 +30,10 @@ header
     height: 100%;
 }
 
-.titre
+h1
 {
     display: flex;
-    flex-direction: column;
     text-align: center;
-    width: 50%;
-    padding-right: 80px;
 }
 
 .p 
@@ -90,7 +88,7 @@ header
 ul 
 {
     list-style-type: none;
-    margin-right: 10px;
+    padding-right: 30px;
 }
 
 .fa-shopping-cart
@@ -130,7 +128,7 @@ h2
     }
   }
 
-.image
+img
 {
     height: 100%;
     width: 50%;
@@ -159,11 +157,12 @@ h2
     text-align: center;
     width: 50%;
     margin: auto;
-      .name
+
+      h3
       {
          font-size: 40px;
 
-         .price
+         p
            {
                 font-size: 30px;
                 margin-top: 40px;
@@ -224,18 +223,18 @@ ul
     color: black;
 }
 
-li:hover 
+li 
+{
+    border: purple solid 2px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px;
+ 
+    &:hover 
 {
     background-color: coral;
     transition: 1s;
     transform: scale(1.1);
 }
-
-.renseignement
-{
-    border: purple solid 2px;
-    padding: 20px;
-    box-shadow: 5px 5px 5px 5px;
 }
 
 .fa-truck

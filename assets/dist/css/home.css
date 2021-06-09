@@ -16,6 +16,7 @@ header {
 
 .conteneur {
   display: flex;
+  width: 20%;
 }
 
 .logo_ori {
@@ -23,12 +24,9 @@ header {
   height: 100%;
 }
 
-.titre {
+h1 {
   display: flex;
-  flex-direction: column;
   text-align: center;
-  width: 50%;
-  padding-right: 80px;
 }
 
 .p {
@@ -71,7 +69,7 @@ header {
 
 ul {
   list-style-type: none;
-  margin-right: 10px;
+  padding-right: 30px;
 }
 
 .fa-shopping-cart {
@@ -106,11 +104,11 @@ h2 {
     transform: translateY(0px);
   }
 }
-.image {
+img {
   height: 100%;
   width: 50%;
 }
-.image:hover {
+img:hover {
   transform: scale(1.1);
   transition: 1s;
 }
@@ -130,10 +128,10 @@ h2 {
   width: 50%;
   margin: auto;
 }
-.produit .name {
-  font-size: 30px;
+.produit h3 {
+  font-size: 40px;
 }
-.produit .name .price {
+.produit h3 p {
   font-size: 30px;
   margin-top: 40px;
 }
@@ -152,10 +150,12 @@ h2 {
   background-color: greenyellow;
   transition: 2s;
 }
-.button:hover .button a {
+
+.button a {
   text-decoration: none;
 }
-.button:hover .button a .bnt {
+
+.bnt {
   color: black;
 }
 
@@ -179,16 +179,15 @@ ul {
   color: black;
 }
 
+li {
+  border: purple solid 2px;
+  padding: 20px;
+  box-shadow: 5px 5px 5px 5px;
+}
 li:hover {
   background-color: coral;
   transition: 1s;
   transform: scale(1.1);
-}
-
-.renseignement {
-  border: purple solid 2px;
-  padding: 20px;
-  box-shadow: 5px 5px 5px 5px;
 }
 
 .fa-truck {
