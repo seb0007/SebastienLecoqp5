@@ -18,28 +18,21 @@ header
     height: 200px;
 }
 
-.conteneur
+img
 {
-    display: flex;
-    width: 20%;
-}
-
-.logo_ori
-{
-    width: 70%;
     height: 100%;
+    width: 15%;
+
+    &:hover
+     {
+       transform: scale(1.1);
+       transition: 1s;
+     }
 }
 
-h1
+nav 
 {
-    display: flex;
-    text-align: center;
-}
-
-.p 
-{
-    font-size: 25px;
-    font-weight: 900;
+    margin-top: 15px;
 }
 
 .accueil
@@ -128,18 +121,6 @@ h2
     }
   }
 
-img
-{
-    height: 100%;
-    width: 50%;
-
-    &:hover
-     {
-       transform: scale(1.1);
-       transition: 1s;
-     }
-}
-
 .list_produit
 {
     display: flex;
@@ -167,8 +148,9 @@ img
                 font-size: 30px;
                 margin-top: 40px;
            }
-        }
-    }      
+      }
+}      
+
 
 .button
 {
@@ -185,7 +167,7 @@ img
              background-color: greenyellow;
              transition: 2s;
         }
-    }
+}
         
 .button a 
 {
@@ -229,12 +211,12 @@ li
     padding: 20px;
     box-shadow: 5px 5px 5px 5px;
  
-    &:hover 
-{
-    background-color: coral;
-    transition: 1s;
-    transform: scale(1.1);
-}
+       &:hover 
+        {
+          background-color: coral;
+          transition: 1s;
+          transform: scale(1.1);
+        }
 }
 
 .fa-truck

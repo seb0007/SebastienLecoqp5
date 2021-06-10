@@ -14,24 +14,17 @@ header {
   height: 200px;
 }
 
-.conteneur {
-  display: flex;
-  width: 20%;
-}
-
-.logo_ori {
-  width: 70%;
+img {
   height: 100%;
+  width: 15%;
+}
+img:hover {
+  transform: scale(1.1);
+  transition: 1s;
 }
 
-h1 {
-  display: flex;
-  text-align: center;
-}
-
-.p {
-  font-size: 25px;
-  font-weight: 900;
+nav {
+  margin-top: 15px;
 }
 
 .accueil {
@@ -104,15 +97,6 @@ h2 {
     transform: translateY(0px);
   }
 }
-img {
-  height: 100%;
-  width: 50%;
-}
-img:hover {
-  transform: scale(1.1);
-  transition: 1s;
-}
-
 .list_produit {
   display: flex;
   background-color: coral;
