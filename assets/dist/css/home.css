@@ -2,6 +2,17 @@ body
 {
     width: auto;
     height: auto;
+    animation: apparition 2s ease-in;
+}
+
+@keyframes apparition
+{
+    from { opacity: 0;
+        transform: translateY(-30px);}
+        to {
+          opacity: 1;
+          transform: translateY(0px);
+        }
 }
 
 header
