@@ -1,1 +1,124 @@
 @import "../main.scss";
+
+body
+{
+    width: auto;
+    height: auto;
+}
+
+
+
+header
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+img
+{
+    height: 100%;
+    width: 100%;
+
+    &:hover
+     {
+       transform: scale(1.1);
+       transition: 1s;
+     }
+}
+
+nav 
+{
+    margin-top: 15px;
+}
+
+
+
+ul 
+{
+    list-style-type: none;
+    padding-right: 30px;
+}
+
+.fa-shopping-cart
+{
+    padding-left: 10px;
+}
+
+/*MAIN*/
+
+main
+{
+    width: auto;
+    height: auto;
+h1
+{
+   text-align: center;
+   color: coral;
+}
+}
+
+p
+{
+    text-align: center;
+    color: coral;
+}
+
+
+
+article
+{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+
+      h2
+      {
+         font-size: 40px;
+
+         p
+           {
+                font-size: 30px;
+                margin-top: 40px;
+           }
+      }
+}      
+
+
+/* footer*/
+footer 
+{
+    margin-top: 150px;
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    background-color: beige;
+}
+
+
+ul
+{
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+    color: black;
+}
+
+li 
+{
+    border: purple solid 2px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px;
+ 
+       &:hover 
+        {
+          background-color: coral;
+          transition: 1s;
+          transform: scale(1.1);
+        }
+}
+
+.fa-truck
+{
+    padding-left: 10px;
+}
