@@ -103,12 +103,13 @@ ul
     justify-content: space-evenly;
     cursor: pointer;
     color: black;
+    font-size: 30px;
 }
 
 li 
 {
     border: purple solid 2px;
-    padding: 20px;
+    padding: 30px;
     box-shadow: 5px 5px 5px 5px;
 }
  
