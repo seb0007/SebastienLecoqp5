@@ -1,87 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="description" content="Vente en ligne d'ours en peluche faits à la main de qualité Française."/>
-        <meta name="viewport" content="width=device-widht, initial-scale=1.0"> 
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="style.css" />
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet"> 
-        <meta name="robots" content="index, follow">
-        <script src="https://kit.fontawesome.com/83f4286022.js" crossorigin="anonymous"></script>
-        <title>Orinoco</title>
-    </head>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Vente en ligne d'ours en peluche faits à la main de qualité Française."
+    />
+    <meta name="viewport" content="width=device-widht, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="robots" content="index, follow" />
+    <title>Orinoco</title>
+  </head>
 
+  <body>
+    <header>
+      <figure>
+        <img src="assets/img/oricono.png" alt="logo_orinoco" />
+      </figure>
 
-    <body>
-      <div id="page">
-        <header>
-            <div class="entete">
-               <div class="conteneur">
-                <div class="logo">
-                    <img class="logo_ori" src="assets/img/oricono.png" alt="logo_orinoco">
-                </div>
-               </div>
-                
-            
-                <div class="titre">
-                  <h1>Des ours en peluche</h1>
-                  <p class="p">Fait à la main</p>
-                </div>
-               
+      <nav>
+        <ul>
+          <li>
+            <a href="./index.html">Accueil</a>
+          </li>
+          <li>
+            <a href="./pages/cart.html"
+              >Panier<i class="fas fa-shopping-cart"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-            <div class="nav_bar">
-                <nav class="menu">
-                    <ul>
-                        <li class="accueil">
-                        <a class="" href="index.hml">Accueil</a>
-                        </li>
-                        <li class="panier">
-                        <a class="" href="cart.html">Panier<i class="fas fa-shopping-cart"></i></a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            </div>
-        </header>
+    <main>
+      <h1>Nos ours de collections !</h1>
+      <p>Personnalisé vos oursons 100% fait main</p>
 
-        <main>
-            <h2>Nos ours de collections !
-            </br>
-            Personnalisé vos oursons 100% fait main</h2>
-          <div class="product">
-            <div class="list_produit">
-                    <img class="image" src="teddy_1.jpg" alt="teddy01">
-                    <div class="produit">
-                    <div class="title">Ourson</div>
-                    <div class="price">30e</div>
-                    </div>
-            </div>
-       
+      <article>
+        <figure>
+          <img src="teddy_1.jpg" alt="teddy01" />
+        </figure>
+        <div>
+          <h2>Ourson</h2>
+          <p>description</p>
+          <p>30e</p>
+          <a href="./pages/product.html">voir le produit</a>
+        </div>
+      </article>
+    </main>
 
-      
-            <div class="list_produit">
-                    <img class="image" src="teddy_2.jpg" alt="teddy01">
-                    <div class="produit">
-                    <div class="title">Ourson</div>
-                    <div class="price">30e</div>
-                    </div>
-            </div>
-            </div>
-        </main>
+    <footer>
+        <p>Orinoco tous droits réservés</p>
+        <ul>
+          <li><a href="#">Livraison<i class="fas fa-truck"></i></a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+    </footer>
 
-        <footer>
-            <div class="conteneur1">
-            <ul>
-                <li class="renseignement">Livraison<i class="fas fa-truck"></i></li>
-                <li class="renseignement">Contact</li>
-            </ul>
-            </div>
-        </footer>
-      </div>
-
-      <script src="assets/js/index.js" defer></script>
-
-    </body>
+    <script
+      src="https://kit.fontawesome.com/83f4286022.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/index.js" defer></script>
+  </body>
+</html>
