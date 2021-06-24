@@ -1,0 +1,160 @@
+@import "../main.scss";
+body
+{
+    width: auto;
+    height: auto;
+    animation: apparition 2s ease-in;
+}
+
+@keyframes apparition
+{
+    from { opacity: 0;
+        transform: translateY(-50px);}
+        to {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+}
+
+header
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+img
+{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}    
+
+img:hover
+{
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+
+nav 
+{
+    margin-top: 15px;
+}
+
+ul 
+{
+    list-style-type: none;
+    padding-right: 30px;
+}
+
+.fa-shopping-cart
+{
+    padding-left: 10px;
+}
+
+/*MAIN*/
+
+main
+{
+    width: auto;
+    height: auto;
+}
+
+h1
+{
+   text-align: center;
+   color: coral;
+}
+
+p
+{
+    text-align: center;
+    color: coral;
+    font-size: 30px;
+}
+
+
+
+article
+{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    font-size: 30px;
+}    
+
+
+#content
+{
+   flex-direction: column;
+}
+
+.class_teddy
+{
+    display: flex;
+}
+
+.image_teddy
+{
+    
+}
+
+.class_list_produits
+{
+
+}
+
+.class_list_produits .name_teddy
+{
+    font-size: 60px;
+
+}
+
+.class_list_produits .description, .class_list_produits .price_teddy
+{
+    font-size: 30px;
+    margin-top: 40px;
+    text-align: center;
+    color: coral;
+}
+
+/* footer*/
+footer 
+{
+    margin-top: 150px;
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    background-color: beige;
+}
+
+
+ul
+{
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+    color: black;
+    font-size: 30px;
+}
+
+li 
+{
+    border: purple solid 2px;
+    padding: 30px;
+    box-shadow: 5px 5px 5px 5px;
+}
+ 
+li:hover 
+        {
+          background-color: coral;
+          transition: 1s;
+          transform: scale(1.1);
+        }
+
+
+.fa-truck
+{
+    padding-left: 10px;
+}
