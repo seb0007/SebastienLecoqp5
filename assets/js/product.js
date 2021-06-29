@@ -16,7 +16,7 @@ fetch ('url')
 
     //Création div global
 
-    const domAll = document.createElement('div');
+    const domAll = document.createElement('article');
     divAll.className = "teddy";
     lookTeddy.appendChild(divAll)
 
@@ -26,10 +26,10 @@ fetch ('url')
     domImage.className = "teddy_image";
     divAll.appendChild(domImage)
 
-    const domImageTeddy = document.createElement('img');
+    const domImageTeddy = document.createElement('figure');
     domImageTeddy.className = "image";
-    domImageTeddy.setAttribute("src",data.imageUrl);
-    domImage.setAttribute("alt",data.name);
+    domImageTeddy.setAttribute("src",data[i].imageUrl);
+    domImage.setAttribute("alt",data[i].name);
     domImage.appendChild(domImageTeddy)
 
 
@@ -41,17 +41,17 @@ fetch ('url')
 
     const domName = document.createElement('h2'); 
     domName.className = "teddy_name";
-    domName.textContent =data.name;
+    domName.textContent = data[i].name;
     domInfoTeddy.appendChild(domName)
 
     const domDescription = document.createElement('p');
     domDescription.className = "description";
-    domDescription.textContent = data.description;
+    domDescription.textContent = data[i].description;
     domInfoTeddy.appendChild(domDescription)
 
     const domPrice = document.createElement('h3');
     domPrice.className = "teddy_price";
-    domPrice.textContent = data.price / 100 + " €"
+    domPrice.textContent = data[i].price / 100 + " €"
     domInfoTeddy.appendChild(domPrice)
 
     //Création choix de couleur
@@ -65,7 +65,10 @@ fetch ('url')
 
     //Sélection choix des couleurs
 
-    const domChoose = document.createElement('')
+    const domlabel = document.createElement("label");
+    domlabel.textContent = "Choissisez sa couleur : ";
+    domColour.appendChild(domlabel)
+    
 
 
     //Création sélecteur du choix des couleurs
@@ -74,49 +77,50 @@ fetch ('url')
     domSelect.className = "color_select";
     domColorTeddy.appendChild(domSelect)
 
-//Affichage des couleurs
-//Creation menu déroulant couleurs
-//Création boucle
+    //Affichage des couleurs
+    //Creation menu déroulant couleurs
+    //Création boucle
 
-const color = data.colors;
+    const color = data.colors;
 
-for(let i=0; i < colors.length; i++) { 
-let colorChoise = document.createElement('option');
-colorChoise.textContent = "";
-colorChoise.setAttribute = ();
-domSelect.appendChild(colorChoise)
-}
-
-
- //Création bouton pour ajouter le produit au panier
-
- const domButton = document.createElement('button');
- domButton.className = "btn";
- domButton.textContent = "Acheter le produit";
- domColorTeddy.appendChild(domButton)
+    for(let i=0; i < colors.length; i++) { 
+      let colorChoise = document.createElement('option');
+      colorChoise.textContent = data[i].colors;
+      colorChoise.setAttribute = ();
+      domSelect.appendChild(colorChoise)
+    }
 
 
- //création event sur mon bouton
+  //Création bouton pour ajouter le produit au panier
 
- domButton.addEventListener('click', function(event){
-  // si l'event n'est pas traité, l'event continue à se propager
-event.preventDefault();
-})
+    const domButton = document.createElement('button');
+    domButton.className = "btn";
+    domButton.textContent = "Acheter le produit";
+    domColorTeddy.appendChild(domButton)
+
+
+   //création event sur mon bouton
+
+    domButton.addEventListener('click', function(event){
+    // si l'event n'est pas traité, l'event continue à se propager
+    event.preventDefault();
+    })
 
   // message pour indiquer à l'utilisateur l'ajout de son produit dans le panier
 
-  function Message() {
+    function Message() {
     document.getElementById("validate__msg").innerHTML = "";
 
-  let validationMessage = document.getElementById("validate__msg");
-  validationMessage.textContent = ("Le produit a été ajouté au panier");
+    let validationMessage = document.getElementById("validate__msg");
+    validationMessage.textContent = ("Le produit a été ajouté au panier");
+    console.log('yes')
   
-  }})
+   }})
    
 
     /*
        Pour ajouter l'élément cliqué par l'utilisateur dans le panier : 
-       utiliser querySelectorAll 
+       utiliser querySelector
        ensuite utiliser addEventListerner("click") puisque c'est lorsque l'utilisateur va cliquer sur le teddy que le choix va se faire
       
        panier localStorage? if/else,     push?*/
