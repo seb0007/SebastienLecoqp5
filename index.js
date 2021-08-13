@@ -1,43 +1,58 @@
 
 //Récupérer les données
 
-async function displayteddy(){ 
-fetch('http://localhost:3000/api/teddies')
-  .then(response => response.json())
-  .then((nounours) => {
-   for(let elem of nounours)
+const myGallery = document.getElementById('content');
+console.log(myGallery);
 
-   {
-      let products = document.getElementById('content')
-      let div = document.createElement('main');
+let section = document.createElement("section");
+myGallery.appendChild(section);
 
-      
-      let newDiv = document.createElement("article");
-      div.appendChild(newDiv)
 
-      let div2 = document.createElement('figure');
-      newDiv.appendChild(div2)
 
-      let displayPictures = document.createElement('img');
-      displayPictures.src = elem.imageUrl;
-      newDiv.appendChild(displayPictures)
 
-      let displayName = document.createElement('h2');
-      displayName.textContent =  elem.name;     /* ou nounours[i].name; ???*/
-      newDiv.appendChild(displayName)
+async function fillProducts() {
+  await fetch('http://localhost:3000/api/teddies') // will return info, but in wrong format
+    .then((response) => response.json()) // will return info, in json format
+    .then((nounours) => remplirListeProduits(nounours)) // main code here, using json info
+}
 
-      let displayPrice = document.createElement('h3');
-      displayPrice.textContent = elem.price/100 + "€";
-      newDiv.appendChild(displayPrice)
 
-      const displayButton = document.createElement('button');
-      domButton.textContent = "Voir produit";
-      newDiv.appendChild(displayButton)
+fillProducts()
 
-   }
+
+
+function remplirListeProduits(nounours) {
+ 
+  for (let elem of nounours) {
+
+    let article = document.createElement("article");
+    section.appendChild(article);
+
+    let displayPictures = document.createElement("img");
+    displayPictures.src = elem.imageUrl;
+    article.appendChild(displayPictures);
+
+
+    let displayName = document.createElement("h3");
+    displayName.textContent = elem.name;
+    article.appendChild(displayName);
+
+    let displayPrice = document.createElement("p");
+    displayPrice.textContent = elem.price/100 + " €";
+    article.appendChild(displayPrice);
+    
+    let lien = document.createElement("a");
+    
+    article.appendChild(lien);
+
+    let button = document.createElement("bnt");
+    button.textContent = "Voir produit";
+    lien.appendChild(button);
    
-   displayteddy()
-   
-   
+  }
 
-})}
+}
+
+  /*.catch(error => {
+     document.getElementById('content').textContent='Erreur avec le serveur'
+   }*/

@@ -2,48 +2,88 @@ let params = (new URL(document.location)).searchParams;
 let id = params.get('id');
 console.log(id)
 
-let url = "http://localhost:3000/api/teddies/" + id;
-console.log(url)
-
-fetch ('url')
-  .then(response => response.json())
-  .then(nounours => {
-
-    const lookTeddy = document.getElementById('teddy_info')
-
-    //Création div global
-
-    const domAll = document.createElement('article');
-    divAll.className = "teddy";
-    lookTeddy.appendChild(divAll)
-
-    //création div image de l'ourson
-
-    const domImage = document.createElement('div');
-    divAll.appendChild(domImage)
-
-    const domImageTeddy = document.createElement('figure');
-    displayPictures.src = elem.imageUrl;
-    domImage.appendChild(domImageTeddy)
+let url = 'http://localhost:3000/api/teddies/' + id;
 
 
-    //création div informations global de l'ourson
-
-    const domInfoTeddy = document.createElement('div');
-    domInfoTeddy.className = "info_teddy",
-    divAll.appendChild(domInfoTeddy)
-
-    const domName = document.createElement('h2'); 
-    domName.textContent = elem.name;
-    domInfoTeddy.appendChild(domName)
-
-    const domDescription = document.createElement('p');
-    domDescription.textContent = elem.description;
-    domInfoTeddy.appendChild(domDescription)
-
-    const domPrice = document.createElement('h3');
-    domPrice.textContent = elem.price / 100 + " €"
-    domInfoTeddy.appendChild(domPrice)
+const lookTeddy = document.getElementById('teddy_info');
 
 
-  })
+
+async function fillProducts() {
+  await fetch('url')
+    .then((response) => response.json()) 
+    .then((nounours) => afficherProduidsNounours(nounours)) 
+}
+
+
+fillProducts()
+
+/*function afficherProduidsNounours(nounours)
+{
+  for(let elem of nounours[i])
+  {
+
+    let section = document.createElement('section');
+    lookTeddy.appendChild(section);
+
+  
+
+//Afficher info global sur le produit
+
+
+     let displayInfo = document.createElement('article');
+     section.appendChild(displayInfo);
+     
+     let displayPictures = document.createElement('img');
+     displayPictures.src = elem.imageUrl;
+     section.appendChild(displayPictures);
+
+
+     let divInfo = document.createElement('div');
+     displayInfo.appendChild(divInfo);
+     
+
+
+     let displayName = document.createElement('h2');
+     displayName.textContent = elem.name;
+     divInfo.appendChild(displayName);
+    
+     let displayDescription = document.createElement('p');
+     displayDescription.textContent = elem.description;
+     divInfo.appendChild(displayDescription);
+
+     let displayPrice = document.createElement('h3');
+     displayPrice.textContent = elem.price;
+     divInfo.appendChild(displayPrice);
+
+     //Afficher couleurs
+
+     let displayColors = document.createElement('div1');
+     divInfo.appendChild(displayColors);
+
+     let colors = document.createElement('div2')
+     colors.textContent = elem.colors;
+     displayColors.appendChild(colors);
+
+     let displayButton = document.createElement('bnt');
+     displayButton.textContent = "Ajouter au panier";
+     displayColors.appendChild(displayButton);
+
+     /*addTeddy.addEventListener("click", function(event){
+     event.preventDefault();*/
+
+     //mettre produit dans le panier
+
+     /*let basket
+     let listTeddySelected = localStorage.getItem("listTeddySelected");
+     if/else????*/
+    
+/*
+  }
+
+  afficherProduidsNounours(nounours)
+}*/
+
+
+
+console.log("coucou")
