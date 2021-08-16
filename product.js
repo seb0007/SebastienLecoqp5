@@ -1,6 +1,19 @@
-let params = (new URL(document.location)).searchParams;
+const queryString = window.location.search;
+console.log(queryString);
+
+const urlParams = new URLSearchParams(queryString);
+
+
+const id = urlParams.get('id')
+
+console.log(productId);
+
+
+
+
+/*let params = (new URL(document.location)).searchParams;
 let id = params.get('id');
-console.log(id)
+console.log(id)*/
 
 let url = 'http://localhost:3000/api/teddies/' + id;
 
@@ -20,7 +33,7 @@ fillProducts()
 
 /*function afficherProduidsNounours(nounours)
 {
-  for(let elem of nounours[i])
+  for(let elem of nounours)
   {
 
     let section = document.createElement('section');
@@ -68,6 +81,7 @@ fillProducts()
      let displayButton = document.createElement('bnt');
      displayButton.textContent = "Ajouter au panier";
      displayColors.appendChild(displayButton);
+     
 
      /*addTeddy.addEventListener("click", function(event){
      event.preventDefault();*/
@@ -80,10 +94,7 @@ fillProducts()
     
 /*
   }
-
-  afficherProduidsNounours(nounours)
 }*/
 
 
 
-console.log("coucou")
