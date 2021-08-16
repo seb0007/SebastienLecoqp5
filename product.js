@@ -3,17 +3,11 @@ console.log(queryString);
 
 const urlParams = new URLSearchParams(queryString);
 
-
 const id = urlParams.get('id')
 
-console.log(productId);
+console.log('id');
 
 
-
-
-/*let params = (new URL(document.location)).searchParams;
-let id = params.get('id');
-console.log(id)*/
 
 let url = 'http://localhost:3000/api/teddies/' + id;
 
@@ -30,8 +24,8 @@ async function fillProducts() {
 
 
 fillProducts()
-
-/*function afficherProduidsNounours(nounours)
+/*
+function afficherProduidsNounours(nounours)
 {
   for(let elem of nounours)
   {
