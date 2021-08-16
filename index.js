@@ -14,6 +14,8 @@ async function fillProducts() {
   await fetch('http://localhost:3000/api/teddies') // will return info, but in wrong format
     .then((response) => response.json()) // will return info, in json format
     .then((nounours) => remplirListeProduits(nounours)) // main code here, using json info
+
+    
 }
 
 
@@ -24,6 +26,8 @@ fillProducts()
 function remplirListeProduits(nounours) {
  
   for (let elem of nounours) {
+    
+   
 
     let article = document.createElement("article");
     section.appendChild(article);
@@ -42,12 +46,13 @@ function remplirListeProduits(nounours) {
     article.appendChild(displayPrice);
     
     let lien = document.createElement("a");
-    
+    lien.setAttribute("href", "product.html?id=" + nounours._id);
     article.appendChild(lien);
 
     let button = document.createElement("bnt");
     button.textContent = "Voir produit";
     lien.appendChild(button);
+   
    
   }
 

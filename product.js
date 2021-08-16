@@ -20,7 +20,7 @@ async function fillProducts() {
   await fetch('url')
     .then((response) => response.json()) 
     .then((nounours) => afficherProduidsNounours(nounours)) 
-}
+} 
 
 
 fillProducts()
