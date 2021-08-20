@@ -5,7 +5,7 @@ const urlParams = new URLSearchParams(queryString);
 
 const id = urlParams.get('id')
 
-console.log('id');
+console.log(id);
 
 
 
@@ -17,18 +17,20 @@ const lookTeddy = document.getElementById('teddy_info');
 
 
 async function fillProducts() {
-  await fetch('url')
+  await fetch(url)
     .then((response) => response.json()) 
     .then((nounours) => afficherProduidsNounours(nounours)) 
 } 
 
 
 fillProducts()
-/*
+
+
+
+
 function afficherProduidsNounours(nounours)
 {
-  for(let elem of nounours)
-  {
+ 
 
     let section = document.createElement('section');
     lookTeddy.appendChild(section);
@@ -41,54 +43,82 @@ function afficherProduidsNounours(nounours)
      let displayInfo = document.createElement('article');
      section.appendChild(displayInfo);
      
-     let displayPictures = document.createElement('img');
-     displayPictures.src = elem.imageUrl;
-     section.appendChild(displayPictures);
 
 
      let divInfo = document.createElement('div');
      displayInfo.appendChild(divInfo);
      
+     let displayPictures = document.createElement('img');
+     displayPictures.src = nounours.imageUrl;
+     divInfo.appendChild(displayPictures);
 
 
      let displayName = document.createElement('h2');
-     displayName.textContent = elem.name;
+     displayName.textContent = nounours.name;
      divInfo.appendChild(displayName);
-    
-     let displayDescription = document.createElement('p');
-     displayDescription.textContent = elem.description;
-     divInfo.appendChild(displayDescription);
 
      let displayPrice = document.createElement('h3');
-     displayPrice.textContent = elem.price;
+     displayPrice.textContent = nounours.price/100 + " € ";
      divInfo.appendChild(displayPrice);
+    
+     let displayDescription = document.createElement('p');
+     displayDescription.textContent = nounours.description;
+     divInfo.appendChild(displayDescription);
 
-     //Afficher couleurs
 
-     let displayColors = document.createElement('div1');
-     divInfo.appendChild(displayColors);
+     //Afficher 
 
-     let colors = document.createElement('div2')
-     colors.textContent = elem.colors;
-     displayColors.appendChild(colors);
+     let form = document.createElement('form');
+     divInfo.appendChild(form);
 
-     let displayButton = document.createElement('bnt');
-     displayButton.textContent = "Ajouter au panier";
-     displayColors.appendChild(displayButton);
+     let div = document.createElement('div');
+     displayInfo.appendChild(div);
+
+     let label = document.createElement('label');
+     label.textContent = "choississez la couleur : "
+     div.appendChild(label);
      
 
-     /*addTeddy.addEventListener("click", function(event){
-     event.preventDefault();*/
+     let displayColors = document.createElement('select');
+     div.appendChild(displayColors);
+
+     //Affichage des couleurs
+    
+    
+const couleur = nounours.colors;
+     for(let i = 0; i < couleur.length; i++){
+     let colors = document.createElement('option');
+     colors.textContent = nounours.colors[i];
+     displayColors.appendChild(colors);
+    
+     }
+     console.log(nounours.colors);
+    
+     let displayButton = document.createElement("div3");
+     displayInfo.appendChild(displayButton);
+
+     let button = document.createElement('bnt');
+     button.textContent = "Ajouter au panier";
+     displayButton.appendChild(button);
+
+     //Event click
+
+     button.addEventListener("click", function(event){
+     event.preventDefault()
+     });
+    
+     
+
+     //ajout produit dans panier
+
+  
+}
+
+
+
 
      //mettre produit dans le panier
-
-     /*let basket
+/*
+     let basket
      let listTeddySelected = localStorage.getItem("listTeddySelected");
      if/else????*/
-    
-/*
-  }
-}*/
-
-
-
