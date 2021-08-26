@@ -1,9 +1,11 @@
+//Récupère Id de l'ourson sélectionné
+
 const queryString = window.location.search;
 console.log(queryString);
 
 const urlParams = new URLSearchParams(queryString);
 
-const id = urlParams.get('id')
+const id = urlParams.get('id');
 
 console.log(id);
 
@@ -37,7 +39,7 @@ function afficherProduidsNounours(nounours)
 
   
 
-//Afficher info global sur le produit
+     //Afficher info global sur le produit
 
 
      let displayInfo = document.createElement('article');
@@ -66,18 +68,22 @@ function afficherProduidsNounours(nounours)
      divInfo.appendChild(displayDescription);
 
 
-     //Afficher 
+     //Afficher div pour le choix de couleur de l'ourson
 
-     let form = document.createElement('form');
-     divInfo.appendChild(form);
 
      let div = document.createElement('div');
      displayInfo.appendChild(div);
+     
+
+     //Création d'un label pour indiquer le choix de couleur de l'ourson
 
      let label = document.createElement('label');
      label.textContent = "choississez la couleur : "
      div.appendChild(label);
      
+
+     
+     // Création d'un selecteur pour choisir la couleur de l'ourson
 
      let displayColors = document.createElement('select');
      div.appendChild(displayColors);
@@ -85,14 +91,18 @@ function afficherProduidsNounours(nounours)
      //Affichage des couleurs
     
     
-const couleur = nounours.colors;
+     const couleur = nounours.colors;
+
      for(let i = 0; i < couleur.length; i++){
      let colors = document.createElement('option');
      colors.textContent = nounours.colors[i];
      displayColors.appendChild(colors);
     
      }
+
      console.log(nounours.colors);
+
+     //ajout produit dans panier
     
      let displayButton = document.createElement("div3");
      displayInfo.appendChild(displayButton);
@@ -105,20 +115,50 @@ const couleur = nounours.colors;
 
      button.addEventListener("click", function(event){
      event.preventDefault()
-     });
-    
+     
+   
      
 
-     //ajout produit dans panier
+    let teddySelect = {
+      productName : nounours.name,
+      productId : nounours._id,
+      productColors : nounours.colors,
+      productImage : nounours.imageUrl,
+      productPrice : nounours.price/100,
+      productQuantity : 1,
+
+    };
+
+    console.log(teddySelect);
+
+     
+        
+    
+     let listTeddySelect = JSON.parse(localStorage.getItem("listTeddySelect"));
+     if(listTeddySelect==null)
+     {
+      listTeddySelect=[];
+      listTeddySelect.push(teddySelect);
+      localStorage.setItem("listTeddySelected",JSON.stringify(teddySelect));
+      
+      alert("Cet article a été ajouté dans votre panier");
+      console.log(listTeddySelect);
+     }
+
+  
+      else{
+        
+        listTeddySelect.push(teddySelect);
+        localStorage.setItem("listTeddySelected",JSON.stringify(teddySelect));
+        alert("Cet article a été ajouté dans votre panier");
+       
+      }
+     
+
+     })
+    
 
   
 }
 
 
-
-
-     //mettre produit dans le panier
-/*
-     let basket
-     let listTeddySelected = localStorage.getItem("listTeddySelected");
-     if/else????*/
