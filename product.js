@@ -59,26 +59,28 @@ function afficherProduidsNounours(nounours)
      displayName.textContent = nounours.name;
      divInfo.appendChild(displayName);
 
+     let displayDescription = document.createElement('p');
+     displayDescription.textContent = nounours.description;
+     divInfo.appendChild(displayDescription);
+
      let displayPrice = document.createElement('h3');
      displayPrice.textContent = nounours.price/100 + " € ";
      divInfo.appendChild(displayPrice);
     
-     let displayDescription = document.createElement('p');
-     displayDescription.textContent = nounours.description;
-     divInfo.appendChild(displayDescription);
+    
 
 
      //Afficher div pour le choix de couleur de l'ourson
 
 
-     let div = document.createElement('div');
+     let div = document.createElement('div1');
      displayInfo.appendChild(div);
      
 
      //Création d'un label pour indiquer le choix de couleur de l'ourson
 
      let label = document.createElement('label');
-     label.textContent = "choississez la couleur : "
+     label.textContent = "Choississez la couleur : ";
      div.appendChild(label);
      
 
@@ -119,7 +121,7 @@ function afficherProduidsNounours(nounours)
    
      
 
-    let teddySelect = {
+     let teddySelect = {
       productName : nounours.name,
       productId : nounours._id,
       productColors : nounours.colors,
@@ -132,14 +134,13 @@ function afficherProduidsNounours(nounours)
     console.log(teddySelect);
 
      
-        
+     let basket = [];
     
      let listTeddySelect = JSON.parse(localStorage.getItem("listTeddySelect"));
      if(listTeddySelect==null)
      {
-      listTeddySelect=[];
-      listTeddySelect.push(teddySelect);
-      localStorage.setItem("listTeddySelected",JSON.stringify(teddySelect));
+      basket.push(teddySelect);
+      localStorage.setItem("listTeddySelect",JSON.stringify(basket));
       
       alert("Cet article a été ajouté dans votre panier");
       console.log(listTeddySelect);
@@ -148,8 +149,8 @@ function afficherProduidsNounours(nounours)
   
       else{
         
-        listTeddySelect.push(teddySelect);
-        localStorage.setItem("listTeddySelected",JSON.stringify(teddySelect));
+        basket.push(teddySelect);
+        localStorage.setItem("listTeddySelect",JSON.stringify(basket));
         alert("Cet article a été ajouté dans votre panier");
        
       }

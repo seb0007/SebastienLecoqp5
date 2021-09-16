@@ -20,9 +20,9 @@ async function fillProducts() {
 fillProducts()
 
 
-.catch(error => {
+/*.catch(error => {
   document.getElementById('content').textContent='Erreur avec le serveur'
-})
+})*/
 
 
 function remplirListeProduits(nounours) {
@@ -34,7 +34,9 @@ function remplirListeProduits(nounours) {
     let article = document.createElement("article");
     section.appendChild(article);
 
+
     let displayPictures = document.createElement("img");
+    displayPictures.className = "pictures";
     displayPictures.src = elem.imageUrl;
     article.appendChild(displayPictures);
 
