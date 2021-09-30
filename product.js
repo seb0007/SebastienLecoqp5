@@ -68,14 +68,20 @@ function afficherProduidsNounours(nounours)
      divInfo.appendChild(displayPrice);
     
     
+     let div1 = document.createElement('div1');
+     displayInfo.appendChild(div1); 
 
+     let fuck = document.createElement('label');
+     fuck.textContent = "Choississez la quantité : ";
+     div1.appendChild(fuck);
 
+     let input = document.createElement('input');
+     div1.appendChild(input);
      //Afficher div pour le choix de couleur de l'ourson
 
 
      let div = document.createElement('div1');
-     displayInfo.appendChild(div);
-     
+     displayInfo.appendChild(div);     
 
      //Création d'un label pour indiquer le choix de couleur de l'ourson
 
@@ -112,6 +118,7 @@ function afficherProduidsNounours(nounours)
      let button = document.createElement('bnt');
      button.textContent = "Ajouter au panier";
      displayButton.appendChild(button);
+
 
      //Event click
 
@@ -152,8 +159,9 @@ function afficherProduidsNounours(nounours)
         basket.push(teddySelect);
         localStorage.setItem("listTeddySelect",JSON.stringify(basket));
         alert("Cet article a été ajouté dans votre panier");
-       
+        
       }
+      console.log(listTeddySelect);
      
 
      })

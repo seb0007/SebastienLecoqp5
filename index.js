@@ -4,7 +4,7 @@
 const myGallery = document.getElementById('content');
 console.log(myGallery);
 
-let section = document.createElement("section");
+let section = document.createElement("main");
 myGallery.appendChild(section);
 
 
@@ -14,8 +14,8 @@ async function fillProducts() {
     .then((response) => response.json()) // will return info, in json format
     .then((nounours) => remplirListeProduits(nounours)) // main code here, using json info
     
-    
 }
+
 
 fillProducts()
 
@@ -34,6 +34,7 @@ function remplirListeProduits(nounours) {
     let article = document.createElement("article");
     section.appendChild(article);
 
+    
 
     let displayPictures = document.createElement("img");
     displayPictures.className = "pictures";
@@ -52,7 +53,7 @@ function remplirListeProduits(nounours) {
     let lien = document.createElement("a");
     lien.setAttribute("href", "product.html?id=" + elem._id);
     article.appendChild(lien);
-    console.log(nounours._id);
+    
 
     let button = document.createElement("bnt");
     button.textContent = "Voir produit";
