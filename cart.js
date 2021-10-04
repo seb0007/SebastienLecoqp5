@@ -180,7 +180,7 @@ async function fillProducts() {
     form.appendChild(buttonCommand);
   
     
-    ButtonSendForm.addEventListener("click", (e)=> {
+    buttonCommand.addEventListener("click", (e)=> {
       e.preventDefault();
 
       let contact = {
