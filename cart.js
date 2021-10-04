@@ -183,21 +183,23 @@ async function fillProducts() {
     buttonCommand.addEventListener("click", (e)=> {
       e.preventDefault();
 
-      let contact = {
-        firstName : firstName.value,
-        lastname : lastname.value,
-        adress : adress.value,
-        city : city.value,
-        email : email.value,
-      }
-      
-      
-      let dataSend = {
-        contact : contact,
-        products : productId,
-      }
+     
 
     });
+
+    let contact = {
+      firstName : firstName.value,
+      lastname : lastname.value,
+      adress : adress.value,
+      city : city.value,
+      email : email.value,
+    }
+    
+    
+    let dataSend = {
+      contact : contact,
+      products : productId,
+    }
 
 
     }
