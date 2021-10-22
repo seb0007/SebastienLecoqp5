@@ -1,9 +1,7 @@
 
 
 // CREATION DE LA PAGE PANIER - FAIRE APPARAITRE TOUS LES TEDDY SELECTIONNES
-/*import { numberItemInTheBasket } from "./produitSelected.js";
-console.log(numberItemInTheBasket);
-*/
+
 
 let listTeddySelect = JSON.parse(localStorage.getItem("listTeddySelect"));
 
@@ -19,30 +17,39 @@ const options = {
   headers: {
       'Content-Type' : 'application/json' 
   },
-  body: JSON.stringify(/*dataSend*/)  
+  body: JSON.stringify()  
 };
 console.log(options);
 
 
+///////Création d'un tableau de stockage des prix
+let prixPanier = [];
+
+//////Création du tableau qui va être envoyé au serveur avec les id des nounours
 
 
-let productId = [];
-let prixPanier = 0;
 
-async function fillProducts() {
-    await fetch('http://localhost:3000/api/teddies/order',options) 
-      .then((response) => response.json()) 
-      .then((nounours) => remplirListePanier(nounours)) 
+let basket = JSON.parse(listTeddySelect);
+
+
+    fetch('http://localhost:3000/api/teddies/order',options) 
+      .then(function(response) {
+        if (response.ok) {
+          return response.json();  
+        }
+      })
+    
+      .then(function(nounours) {
+        localStorage.setItem("OrderID", nounours.orderId);
+        window.location = "confirmation_commande.html"
+        console.log(nounours);
+      })
+
+      .catch(function(error) {
+        console.log(error)
+
+      });
       
-     /* return response.json();?????*/
-  }
-  
-  
-  fillProducts() 
-
-  function remplirListePanier(nounours)
-  {
-
      
     if(listTeddySelect == null){
       
@@ -57,31 +64,32 @@ async function fillProducts() {
 
     }  else {
       // s'il y a quelque chose dans le panier : récupérer les informations
-      let basket = JSON.parse(listTeddySelect);
-      
-     
+
+  
 
       for(let i=0; i < basket.length; i ++)
       {
-        products.push(basket[i].productId);
+       
+      product.push(basket[i].productId);
 
-        const div = getElementById('basket');
+      const div = document.getElementById('teddy_basket');
 
-        const div2 = createElement('basketTeddy');
-        div.appendChild(div2)
+      const div2 = document.createElement('basketTeddy');
+      div.appendChild(div2)
 
-     let picture = document.createElement('img');
-     picture.src = nounours[i].imageUrl;
-     formulaire.appendChild(picture);
+      let picture = document.createElement('img');
+      picture.setAttribute("src",basket[i].productImage)
+      picture.src = basket[i].productImage;
+      formulaire.appendChild(picture);
 
-     let nameTeddy = document.createElement('p');
-     nameTeddy.textContent = nounours.name;
-     formulaire.appendChild(nameTeddy);
+      let nameTeddy = document.createElement('p');
+      nameTeddy.textContent = basket.productName;
+      formulaire.appendChild(nameTeddy);
 
-     let prix = document.createElement('p');
-     prix.textContent = nounours[i].price + "€";/* basket [i]???*/
-     formulaire.appendChild(prix);
-      }
+      let prix = document.createElement('p');
+      prix.textContent = basket[i].productPrice + "€";/* basket [i]???*/
+      formulaire.appendChild(prix);
+       }
 
     }
 
@@ -120,6 +128,7 @@ async function fillProducts() {
       });
 
      //Création formulaire
+     
 
      let form = document.createElement('form');
      formulaire.appendChild(form);
@@ -167,60 +176,83 @@ async function fillProducts() {
      form.appendChild(userMail1);
      
 
-    //Calcul produi panier
-    
-    
-
-    const totalAccount = document.createElement('p');
-    totalAccount.textContent = "Montant total de votre commande : " + nounours.price/100 + "€";
-    formulaire.appendChild(totalAccount);
+ 
 
     let buttonCommand = document.createElement('button');
     buttonCommand.textContent = "Valider commande";
     form.appendChild(buttonCommand);
+
+   
   
+
+    /*const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+    const email = document.getElementById('email').value;
     
-    buttonCommand.addEventListener("click", (e)=> {
+   /* buttonCommand.addEventListener("click", (e)=> {
       e.preventDefault();
 
-     
+      let contact = {
+        firstName : firstName.value,
+        lastname : lastname.value,
+        adress : adress.value,
+        city : city.value,
+        email : email.value,
+      }
+      
+      
+      let dataSend = {
+        contact : contact,
+        products : productId,
+      }
 
-    });
+    });*/
 
-    let contact = {
-      firstName : firstName.value,
-      lastname : lastname.value,
-      adress : adress.value,
-      city : city.value,
-      email : email.value,
-    }
     
+
+   /* function getFormValue() {
+      // envoie des donnee dans le localStorage
+      //////Création de l'objet contact contenant les données du formulaire qui va être envoyé au serveur
+      const contact = {
+        firstName: document.querySelector("#firstname").value,
+        lastName: document.querySelector("#lastname").value,
+        address: document.querySelector("#address").value,
+        city: document.querySelector("#city").value,
+        email: document.querySelector("#email").value
+      
+      };
+      localStorage.setItem("contact", JSON.stringify(contact));
     
-    let dataSend = {
-      contact : contact,
-      products : productId,
+      const aEnvoyer = {
+        basket,
+        contact,
+      };
+    
+      console.log(aEnvoyer);
     }
+    getFormValue();
+   
+//-------------------------------------------recuperer les infos du LS pour qu'il reste dans les champs utilisateur ------------------
 
+// recuperation de la key formulaireValues dans le LS
 
-    }
+const dataLocalStorage = localStorage.getItem("contact");
 
-       // envoie des donnee dans le localStorage
-      /*  const contact = {
-  firstName: document.querySelector("#firstname").value,
-  lastName: document.querySelector("#lastname").value,
-  address: document.querySelector("#address").value,
-  city: document.querySelector("#city").value,
-  email: document.querySelector("#email").value
-};
-console.log(contact);*/
+// convertir la chaine de caractere en objet JS
 
-//vérifier si les infos sont vraie
+const dataLocalStorageObject = JSON.parse(dataLocalStorage);
 
- /*.then(function(value) {
-        localStorage.setItem("OrderID", value.orderId);
-        localStorage.setItem("OrderPrice", totalAccount);
-        window.location = "confirmation.html";
-        console.log("Order ID : ", JSON.stringify(value.orderId));*/
+// rediriger les value du LS dans les champs du formulaire
 
+document.querySelector("#firstname").value = dataLocalStorageObject.Nom;
+document.querySelector("#lastname").value = dataLocalStorageObject.Prenom;
+document.querySelector("#address").value = dataLocalStorageObject.Email;
+document.querySelector("#city").value = dataLocalStorageObject.Adress;
+document.querySelector("#email").value = dataLocalStorageObject.Ville;
+
+/*
+*/
 
 

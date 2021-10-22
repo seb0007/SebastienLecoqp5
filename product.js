@@ -140,6 +140,8 @@ function afficherProduidsNounours(nounours)
 
     console.log(teddySelect);
 
+
+    //AJOUT DES ARTICLES DANS LE PANIER //
      
      let basket = [];
     
@@ -164,9 +166,9 @@ function afficherProduidsNounours(nounours)
       console.log(listTeddySelect);
      
 
-     })
+     });
     
-
+    
   
 }
 

@@ -1,6 +1,3 @@
-
-//Récupérer les données
-
 const myGallery = document.getElementById('content');
 console.log(myGallery);
 
