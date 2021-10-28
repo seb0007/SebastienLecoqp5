@@ -126,7 +126,7 @@ function afficherProduidsNounours(nounours)
      event.preventDefault()
      
    
-     
+   
 
      let teddySelect = {
       productName : nounours.name,

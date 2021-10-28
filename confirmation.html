@@ -10,7 +10,7 @@
         />
         <meta name="viewport" content="width=device-widht, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="./assets/dist/css/cart.css" />
+        <link rel="stylesheet" href="./assets/dist/css/confirmation.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet"> 
@@ -32,44 +32,24 @@
               <li>
                 <a href="./index.html">Accueil</a>
               </li>
-                
+              <li>
+                <a href="./cart.html">Panier<i class="fas fa-shopping-cart"></i
+                ></a>
+              </li>
             </ul>
           </nav>
         </header>
     
         <main>
-          <h1>Votre panier!</h1>
+          <h1>Nos ours personnalisables!</h1>
     
          
             
-            <div id="teddy_basket">
-            </div>
-            
-            <form method="post" id="myForm">
-              <label for="firstName">Votre prénom</label>
-              <input type="text" name="firstName" id="firstName" placeholder="Saisissez votre prénom">
-              <br>
-              <span id="erreur"></span>
-
-
-              <label for="lastName">Votre nom</label>
-              <input type="text" name="lastName" id="lastName">
-
-              <label for="adress">Votre adress</label>
-              <input type="text" name="adress" id="adress">
-
-              <label for="email">Votre ville</label>
-              <input type="text" name="city" id="city">
-
-              <label for="email">Votre email</label>
-              <input type="text" name="email" id="email">
-
-
-              <button type="submit">Valider commande</button>
-            </form>
-            
+            <div id="teddy_info">
+              
            
-
+            </div>  
+         
         </main>
     
         <footer>
@@ -86,6 +66,6 @@
           src="https://kit.fontawesome.com/83f4286022.js"
           crossorigin="anonymous"
         ></script>
-        <script src="./cart.js" defer></script>
+        <script src="./confirmation.js" defer></script>
       </body>
     </html>
