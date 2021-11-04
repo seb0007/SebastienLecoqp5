@@ -80,21 +80,21 @@ function afficherProduidsNounours(nounours)
      //Afficher div pour le choix de couleur de l'ourson
 
 
-     let div = document.createElement('div1');
-     displayInfo.appendChild(div);     
+     let div2 = document.createElement('div2');
+     displayInfo.appendChild(div2);     
 
      //Création d'un label pour indiquer le choix de couleur de l'ourson
 
      let label = document.createElement('label');
      label.textContent = "Choississez la couleur : ";
-     div.appendChild(label);
+     div2.appendChild(label);
      
 
      
      // Création d'un selecteur pour choisir la couleur de l'ourson
 
      let displayColors = document.createElement('select');
-     div.appendChild(displayColors);
+     div2.appendChild(displayColors);
 
      //Affichage des couleurs
     
@@ -126,7 +126,7 @@ function afficherProduidsNounours(nounours)
      event.preventDefault()
      
    
-   
+     
 
      let teddySelect = {
       productName : nounours.name,
@@ -143,33 +143,34 @@ function afficherProduidsNounours(nounours)
 
     //AJOUT DES ARTICLES DANS LE PANIER //
      
-     let basket = [];
     
-     let listTeddySelect = JSON.parse(localStorage.getItem("listTeddySelect"));
-     if(listTeddySelect==null)
-     {
-      basket.push(teddySelect);
-      localStorage.setItem("listTeddySelect",JSON.stringify(basket));
-      
-      alert("Cet article a été ajouté dans votre panier");
-      console.log(listTeddySelect);
-     }
+    
+    let listTeddySelect = JSON.parse(localStorage.getItem("listTeddySelect"));
+    if(listTeddySelect==null)
+    {
+     listTeddySelect.push(teddySelect);
+     localStorage.setItem("listTeddySelect",JSON.stringify(listTeddySelect));
+     console.log(listTeddySelect);
+    
+    }
 
-  
-      else{
-        
-        basket.push(teddySelect);
-        localStorage.setItem("listTeddySelect",JSON.stringify(basket));
-        alert("Cet article a été ajouté dans votre panier");
-        
-      }
-      console.log(listTeddySelect);
+ 
+     else{
+       
+       listTeddySelect = [];
+       listTeddySelect.push(teddySelect);
+       localStorage.setItem("listTeddySelect",JSON.stringify(listTeddySelect));
+       alert("Cet article a été ajouté dans votre panier");
+       console.log(listTeddySelect);
+   
+    
+     }
      
 
      });
     
     
   
-}
 
-
+    }
+       
