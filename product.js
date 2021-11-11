@@ -18,6 +18,7 @@ const lookTeddy = document.getElementById('teddy_info');
 
 
 
+
 async function fillProducts() {
   await fetch(url)
     .then((response) => response.json()) 
@@ -119,8 +120,12 @@ function afficherProduidsNounours(nounours)
      button.textContent = "Ajouter au panier";
      displayButton.appendChild(button);
 
+     
+
 
      //Event click
+
+    
 
      button.addEventListener("click", function(event){
      event.preventDefault()
@@ -142,28 +147,29 @@ function afficherProduidsNounours(nounours)
 
 
     //AJOUT DES ARTICLES DANS LE PANIER //
-     
+    let listTeddySelect = JSON.parse(localStorage.getItem("cart"));
     
     
-    let listTeddySelect = JSON.parse(localStorage.getItem("listTeddySelect"));
+   const ajoutPanier = () => { 
+    listTeddySelect.push(teddySelect)
+    localStorage.setItem("cart",JSON.stringify(listTeddySelect));
+   };
+
     if(listTeddySelect==null)
     {
-     listTeddySelect.push(teddySelect);
-     localStorage.setItem("listTeddySelect",JSON.stringify(listTeddySelect));
-     console.log(listTeddySelect);
     
+     ajoutPanier();
+     alert("Cet article a été ajouté dans votre panier");
+     console.log(listTeddySelect);
     }
 
  
      else{
-       
        listTeddySelect = [];
-       listTeddySelect.push(teddySelect);
-       localStorage.setItem("listTeddySelect",JSON.stringify(listTeddySelect));
+       ajoutPanier();
        alert("Cet article a été ajouté dans votre panier");
+       window.location.href ="cart.html"
        console.log(listTeddySelect);
-   
-    
      }
      
 
@@ -173,4 +179,7 @@ function afficherProduidsNounours(nounours)
   
 
     }
-       
+
+ 
+    
+ 

@@ -3,7 +3,7 @@
 
 
   
-let listTeddySelect =  JSON.parse(localStorage.getItem("listTeddySelect"));
+let listTeddySelect = JSON.parse(localStorage.getItem("cart"));
 console.log(listTeddySelect);
 
 
@@ -64,9 +64,9 @@ displayPrice();
 
 function cartDelete(){
     let basket = JSON.parse(listTeddySelect);
-    const deleteCartAll = document.getElementById("delete");
+    const deleteCart = document.getElementById("delete");
     
-    deleteCartAll.addEventListener("submit", function(e){
+    deleteCart.addEventListener("submit", function(e){
         console.log(i);
         basket.splice(i,1)
         localStorage.setItem("listTeddySelect",JSON.stringify(basket))
@@ -82,9 +82,9 @@ cartDelete();
 
 function deleteAll(){
 
-const deleteCart = document.getElementById('deleteAll');
+const deleteCartAll = document.getElementById('deleteAll');
 
-deleteCart.addEventListener ("click", function(e){
+deleteCartAll.addEventListener ("click", function(e){
     console.log("vider le panier");
     localStorage.removeItem('listTeddySelect')
         // pour supprimer les éléments du panier et revenir à la page html vierge
@@ -156,6 +156,7 @@ deleteAll();
             })
             .then((res) => res.json())
             .then((res) => localStorage.setItem('orderId', res.orderId))
+
             .then(() => (window.location = 'confirmation.html'))
             .catch((error) => {
                 console.log('Erreur de connexion au serveur', error);
