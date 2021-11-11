@@ -1,7 +1,12 @@
 // Récupération Id de la commande (panier.js)
 let orderId = localStorage.getItem('OrderID');
-let value = localStorage.getItem('OrderPrice');
+orderId =JSON.parse(orderId);
 
+
+let sum = 0;
+for( let product of orderId){
+    sum = sum + product.price;
+}
 
 let confirmation = document.getElementById("teddy_confirmation");
 
@@ -17,7 +22,7 @@ divNumOrder.textContent = "Votre numéro de commande : " + orderId;
 confirmation.appendChild(divNumOrder);
 
 let dispalyTotal = document.createElement("h4");
-dispalyTotal.textContent = "Le montant total est de : "  + value + "€";
+dispalyTotal.textContent = `Le montant total est de : ${product}€`;
 confirmation.appendChild(dispalyTotal);
 
 let goodBye = document.createElement('p');

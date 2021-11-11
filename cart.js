@@ -53,7 +53,7 @@ function displayPrice(){
 
     if(listTeddySelect){
       for( let i =0; i< listTeddySelect; i++){
-      totalPrices.push(listTeddySelect.productPrice)
+        totalPrices.push(listTeddySelect.productPrice)
     }
 }}
 
@@ -66,7 +66,7 @@ function cartDelete(){
     let basket = JSON.parse(listTeddySelect);
     const deleteCart = document.getElementById("delete");
     
-    deleteCart.addEventListener("submit", function(e){
+    deleteCart.addEventListener("click", function(e){
         console.log(i);
         basket.splice(i,1)
         localStorage.setItem("listTeddySelect",JSON.stringify(basket))
@@ -156,7 +156,6 @@ deleteAll();
             })
             .then((res) => res.json())
             .then((res) => localStorage.setItem('orderId', res.orderId))
-
             .then(() => (window.location = 'confirmation.html'))
             .catch((error) => {
                 console.log('Erreur de connexion au serveur', error);
