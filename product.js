@@ -120,9 +120,7 @@ function afficherProduidsNounours(nounours)
      button.textContent = "Ajouter au panier";
      displayButton.appendChild(button);
 
-     
-
-
+  
      //Event click
 
     
@@ -153,14 +151,18 @@ function afficherProduidsNounours(nounours)
    const ajoutPanier = () => { 
     listTeddySelect.push(teddySelect)
     localStorage.setItem("cart",JSON.stringify(listTeddySelect));
-   };
+    /*window.location.href ="cart.html"*/
+   };   
 
-    if(listTeddySelect==null)
+  
+
+    if(listTeddySelect)
     {
-    
+     
      ajoutPanier();
      alert("Cet article a été ajouté dans votre panier");
      console.log(listTeddySelect);
+    
     }
 
  
@@ -168,17 +170,24 @@ function afficherProduidsNounours(nounours)
        listTeddySelect = [];
        ajoutPanier();
        alert("Cet article a été ajouté dans votre panier");
-       window.location.href ="cart.html"
        console.log(listTeddySelect);
      }
      
 
      });
+
+     
+
+     
     
     
   
 
     }
+
+    /*.catch(error => {
+      document.getElementById('Teddy_info').textContent='Une erreur est survenue, merci de revenir à la page Accueil'
+    });*/
 
  
     

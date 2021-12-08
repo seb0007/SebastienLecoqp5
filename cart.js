@@ -11,44 +11,89 @@ function displayCart()
 {
     const displayCartTeddy = document.querySelector('#teddy_basket');
    
+   
 
-    if (!localStorage.getItem('listTeddySelect')) {
+    if (!localStorage.getItem('cart')) {
         displayCartTeddy.textContent = 'Votre panier est vide';
       
 
 } else { 
+    
     for (let elem of listTeddySelect) {  
         displayCartTeddy.innerHTML+= `
-  <div class="col-4 col-md-3 col-lg-2">
-      <a href="product.html?${elem.productId}>
-          <img class="card-img-top img-fluid" src="${elem.productImageUrl}/>
-          <div class="card-body teddyInfos">
-              <h2 class="card-title name">${elem.productName}</h5>
-              <p class="color">Couleur: ${elem.productColors}</p>
-              <p class="quantity">Quantité: ${elem.ProductQuantity}</p> 
-              <p class="price">Prix: ${elem.productPrice}.00 &euro;</p>                       
-          </div>
-      </a>                           
+  <div class="info_nounours">
+  
+  <img class="card-img-top img-fluid" src="${elem.productImage}"/>
+  <div class="card_body_teddyInfos">
+      <h2 class="name">${elem.productName}</h2>
+      <p class="color">Couleur: ${elem.productColors}</p>
+      <p class="quantity">Quantité: ${elem.productQuantity}</p> 
+      <p class="price">Prix: ${elem.productPrice}.00 &euro;</p>     
+                        
+  </div>
+                          
   </div>
   `;     
-}           
+  
+}       
+    
 }} 
+
+
 
 
 displayCart();
 
+let totale = 0;
 
+
+function displayTotal() {
+
+    for( let elem of listTeddySelect){ 
+        const displayCartTeddy = document.querySelector('#teddy_basket');
+         displayCartTeddy.innerHTML+= `
+         <div class = "cart_body">
+         <p class = "montantTotal"> Montant : ${elem.producPrice * elem.productQuantity}.00 &euro; </p>
+         </div>
+         `;
+
+     
+   
+}}
+
+console.log(totale);
+
+displayTotal();
+
+
+
+/*let prixPanier = 0;
+
+function priceTotalBasket(){ 
+    
+    prixPanier += listTeddySelect.productQuantity * listTeddySelect.productPrice / 100;
+    //AFFICHE PRIX TOTAL DU PANIER // ENVOI AU LOCALSTORAGE
+    let prixTotal = document.getElementById('prixTotal').textContent = prixPanier + " € ";
+    localStorage.setItem('cart', JSON.stringify(prixTotal));
+  }
+
+  priceTotalBasket();*/
+
+
+
+  
+
+/*
 function displayPrice(){
 
 
     const cartTeddy = document.getElementById("teddy_basket");
-
+   
+    let totalPrices= [];
 
     let total = document.createElement('div5');
-    total.textContent = " Montant total : ";
+    total.textContent = " Montant total : " + totalPrices + "€";
     cartTeddy.appendChild(total);
-
-    let totalPrices= [];
 
 
     if(listTeddySelect){
@@ -59,17 +104,16 @@ function displayPrice(){
 
 
 displayPrice();
-
+*/
 
 
 function cartDelete(){
-    let basket = JSON.parse(listTeddySelect);
+  
     const deleteCart = document.getElementById("delete");
-    
-    deleteCart.addEventListener("click", function(e){
-        console.log(i);
-        basket.splice(i,1)
-        localStorage.setItem("listTeddySelect",JSON.stringify(basket))
+    let i  = 0;
+        deleteCart.addEventListener("click", function(e){
+        listTeddySelect.splice(i,1)
+        localStorage.setItem("cart",JSON.stringify(listTeddySelect))
         // après la suppression -> recharger la page
         document.location.reload()
     })
@@ -86,12 +130,14 @@ const deleteCartAll = document.getElementById('deleteAll');
 
 deleteCartAll.addEventListener ("click", function(e){
     console.log("vider le panier");
-    localStorage.removeItem('listTeddySelect')
+    localStorage.removeItem('cart')
         // pour supprimer les éléments du panier et revenir à la page html vierge
         document.location.reload()
 
-
+        alert(" Votre panier est vide!");
 })
+
+
     
 
 }
@@ -131,7 +177,7 @@ deleteAll();
         } else {
     
             //Creation objet contact
-
+ 
             const contact = {
                 firstName: firstName,
                 lastName: lastName,
