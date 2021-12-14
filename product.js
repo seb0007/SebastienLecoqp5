@@ -23,6 +23,9 @@ async function fillProducts() {
   await fetch(url)
     .then((response) => response.json()) 
     .then((nounours) => afficherProduidsNounours(nounours)) 
+    .catch((error) => {
+      console.log('Erreur de connexion au serveur', error);
+  });
 } 
 
 
@@ -68,17 +71,26 @@ function afficherProduidsNounours(nounours)
      displayPrice.textContent = nounours.price/100 + " € ";
      divInfo.appendChild(displayPrice);
     
-    
-     let div1 = document.createElement('div1');
-     displayInfo.appendChild(div1); 
+   
+ 
+   //Afficher quantité produit
+   
 
-     let fuck = document.createElement('label');
-     fuck.textContent = "Choississez la quantité : ";
-     div1.appendChild(fuck);
+     const produitQuantite = ` 
+     
+     <option value="1">1</option>
+     <option value="2">2</option>
+     <option value="3">3</option>
+    ` ;
 
-     let input = document.createElement('input');
-     div1.appendChild(input);
-     //Afficher div pour le choix de couleur de l'ourson
+     console.log(produitQuantite);
+
+     
+     const positionQuantite = document.querySelector("#quantite_produit");
+     positionQuantite.innerHTML = produitQuantite;
+     console.log(positionQuantite);
+
+        
 
 
      let div2 = document.createElement('div2');
@@ -89,7 +101,7 @@ function afficherProduidsNounours(nounours)
      let label = document.createElement('label');
      label.textContent = "Choississez la couleur : ";
      div2.appendChild(label);
-     
+ 
 
      
      // Création d'un selecteur pour choisir la couleur de l'ourson
@@ -120,6 +132,7 @@ function afficherProduidsNounours(nounours)
      button.textContent = "Ajouter au panier";
      displayButton.appendChild(button);
 
+    
   
      //Event click
 
@@ -129,15 +142,16 @@ function afficherProduidsNounours(nounours)
      event.preventDefault()
      
    
-     
+     const choixQuantite = positionQuantite.value;
+     console.log(choixQuantite);
 
      let teddySelect = {
       productName : nounours.name,
       productId : nounours._id,
       productColors : nounours.colors,
       productImage : nounours.imageUrl,
-      productPrice : nounours.price/100,
-      productQuantity : 1,
+      productPrice : (nounours.price * choixQuantite/100),
+      productQuantity : choixQuantite,
 
     };
 
@@ -176,18 +190,11 @@ function afficherProduidsNounours(nounours)
 
      });
 
-     
-
-     
-    
-    
-  
 
     }
 
-    /*.catch(error => {
-      document.getElementById('Teddy_info').textContent='Une erreur est survenue, merci de revenir à la page Accueil'
-    });*/
+   
+    
 
  
     

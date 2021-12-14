@@ -19,7 +19,7 @@ function displayCart()
 
 } else { 
     
-    for (let elem of listTeddySelect) {  
+    for (let elem of listTeddySelect) {  /* number ?????*/
         displayCartTeddy.innerHTML+= `
   <div class="info_nounours">
   
@@ -28,7 +28,7 @@ function displayCart()
       <h2 class="name">${elem.productName}</h2>
       <p class="color">Couleur: ${elem.productColors}</p>
       <p class="quantity">Quantité: ${elem.productQuantity}</p> 
-      <p class="price">Prix: ${elem.productPrice}.00 &euro;</p>     
+      <p class="price">Prix: ${elem.productPrice }.00 &euro;</p>     
                         
   </div>
                           
@@ -44,67 +44,42 @@ function displayCart()
 
 displayCart();
 
-let totale = 0;
 
 
-function displayTotal() {
-
-    for( let elem of listTeddySelect){ 
-        const displayCartTeddy = document.querySelector('#teddy_basket');
-         displayCartTeddy.innerHTML+= `
-         <div class = "cart_body">
-         <p class = "montantTotal"> Montant : ${elem.producPrice * elem.productQuantity}.00 &euro; </p>
-         </div>
-         `;
-
-     
-   
-}}
-
-console.log(totale);
-
-displayTotal();
-
-
-
-/*let prixPanier = 0;
-
-function priceTotalBasket(){ 
-    
-    prixPanier += listTeddySelect.productQuantity * listTeddySelect.productPrice / 100;
-    //AFFICHE PRIX TOTAL DU PANIER // ENVOI AU LOCALSTORAGE
-    let prixTotal = document.getElementById('prixTotal').textContent = prixPanier + " € ";
-    localStorage.setItem('cart', JSON.stringify(prixTotal));
-  }
-
-  priceTotalBasket();*/
-
-
-
-  
-
-/*
 function displayPrice(){
 
+    
+let totalAccount = [];
 
-    const cartTeddy = document.getElementById("teddy_basket");
-   
-    let totalPrices= [];
+for(let i =0; i <listTeddySelect.length; i++){ 
 
-    let total = document.createElement('div5');
-    total.textContent = " Montant total : " + totalPrices + "€";
-    cartTeddy.appendChild(total);
+    let prixPanier = listTeddySelect[i].productPrice;
+
+totalAccount.push(prixPanier);
 
 
-    if(listTeddySelect){
-      for( let i =0; i< listTeddySelect; i++){
-        totalPrices.push(listTeddySelect.productPrice)
-    }
-}}
+}
+
+const reducer = (accumulateur, currentValue) => accumulateur + currentValue;
+
+const prixTotal = totalAccount.reduce(reducer, 0);
+console.log(prixTotal);
+
+//code html
+
+
+
+const affichagePrixHtml = `
+<div class "affichage_prix_html">Le prix total est de : ${prixTotal}.00 &euro;</div>  `
+
+const displayCartTeddy = document.querySelector('#teddy_basket');
+
+displayCartTeddy.insertAdjacentHTML("beforeend", affichagePrixHtml);
+}
 
 
 displayPrice();
-*/
+
 
 
 function cartDelete(){
@@ -173,8 +148,13 @@ deleteAll();
         .insertAdjacentHTML(
                "afterend",
                 "<p>Commande impossible, pensez à remplir tous les champs.</p>");
+
+                
                
         } else {
+
+           /* localStorage.setItem("prixTotal", JSON.stringify(prixTotal));*/       // ??????????????
+           
     
             //Creation objet contact
  
@@ -186,25 +166,32 @@ deleteAll();
                 email: email,
              
             };
-           console.log(contact);
+
           
+        const productIds = listTeddySelect.map(product => product.productId);
+               
+        // Creating the object which will be the body of the request
+        let orderContent = {};
+        orderContent = { contact, listTeddySelect: productIds };
+          console.log(orderContent);
            
     
             // Méthode POST envoie du formulaire
 
 
             fetch('http://localhost:3000/api/teddies/order', {
-                method: 'POST',
-                body: JSON.stringify(contact),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-            .then((res) => res.json())
-            .then((res) => localStorage.setItem('orderId', res.orderId))
-            .then(() => (window.location = 'confirmation.html'))
-            .catch((error) => {
-                console.log('Erreur de connexion au serveur', error);
-            });
+            method: 'POST',
+            body: JSON.stringify(orderContent),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((res) => res.json())
+        .then((res) => localStorage.setItem('orderId', res.orderId))
+       /* .then(() => (window.location = 'confirm.html'))
+        .catch((error) => {
+            console.log('Erreur de connexion au serveur', error);
+        });*/
+            
         }
     });
