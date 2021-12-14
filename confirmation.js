@@ -1,6 +1,4 @@
 
-/*const prixTotal = localStorage.getItem("prixTotal", JSON.stringify(prixTotal));*/
-
 
 function displayOrder() {
     const listTeddySelect = JSON.parse(localStorage.getItem('cart'));
@@ -18,10 +16,12 @@ function displayOrder() {
     <div class="row content">
     </div>     
     <p class="text-center mt-1">Montant total de votre commande : <strong> ${localStorage.getItem(
-        'prixTotal')},00 &euro; </strong></p>`;
+        'total')},00 &euro; </strong></p>`;
        
 
     // Looping on products to create each product a card to be displayed
+
+
     const content = document.querySelector('.content');
     for (let elem of listTeddySelect) {
         content.innerHTML += `

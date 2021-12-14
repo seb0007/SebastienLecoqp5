@@ -58,6 +58,7 @@ for(let i =0; i <listTeddySelect.length; i++){
 totalAccount.push(prixPanier);
 
 
+
 }
 
 const reducer = (accumulateur, currentValue) => accumulateur + currentValue;
@@ -152,8 +153,7 @@ deleteAll();
                 
                
         } else {
-
-           /* localStorage.setItem("prixTotal", JSON.stringify(prixTotal));*/       // ??????????????
+  
            
     
             //Creation objet contact
@@ -161,19 +161,19 @@ deleteAll();
             const contact = {
                 firstName: firstName,
                 lastName: lastName,
-                adress: adress,
+                address: adress,
                 city: city,
                 email: email,
              
             };
 
           
-        const productIds = listTeddySelect.map(product => product.productId);
+        const products = listTeddySelect.map(product => product.productId);
                
         // Creating the object which will be the body of the request
         let orderContent = {};
-        orderContent = { contact, listTeddySelect: productIds };
-          console.log(orderContent);
+        orderContent = { contact, products };
+        console.log(orderContent);
            
     
             // Méthode POST envoie du formulaire
@@ -188,10 +188,10 @@ deleteAll();
         })
         .then((res) => res.json())
         .then((res) => localStorage.setItem('orderId', res.orderId))
-       /* .then(() => (window.location = 'confirm.html'))
+        .then(() => (window.location = 'confirmation.html'))
         .catch((error) => {
             console.log('Erreur de connexion au serveur', error);
-        });*/
+        });
             
         }
     });
