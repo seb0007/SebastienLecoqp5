@@ -19,7 +19,7 @@ function displayCart()
 
 } else { 
     
-    for (let elem of listTeddySelect) {  /* number ?????*/
+    for (let elem of listTeddySelect) {  
         displayCartTeddy.innerHTML+= `
   <div class="info_nounours">
   
@@ -71,9 +71,9 @@ console.log(prixTotal);
 
 
 const affichagePrixHtml = `
-<div class "affichage_prix_html">Le prix total est de : ${prixTotal}.00 &euro;</div>  `
+<div class "affichage_prix_html"><strong>Le prix total est de : ${prixTotal}.00 &euro;</strong></div>  `
 
-const displayCartTeddy = document.querySelector('#teddy_basket');
+const displayCartTeddy = document.querySelector('#prixTotal');
 
 displayCartTeddy.insertAdjacentHTML("beforeend", affichagePrixHtml);
 }

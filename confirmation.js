@@ -1,5 +1,6 @@
 
 
+
 function displayOrder() {
     const listTeddySelect = JSON.parse(localStorage.getItem('cart'));
     console.log(listTeddySelect);
@@ -16,7 +17,8 @@ function displayOrder() {
     <div class="row content">
     </div>     
     <p class="text-center mt-1">Montant total de votre commande : <strong> ${localStorage.getItem(
-        'total')},00 &euro; </strong></p>`;
+        'prixTotal')},00 &euro; </strong></p>`;
+        
        
 
     // Looping on products to create each product a card to be displayed
@@ -32,9 +34,9 @@ function displayOrder() {
                 alt="Oh le joli nounours !"
             />
             <div class="card-body teddyInfos text-dark">
-                <h5 class="card-title name">${elem.productName}</h5>
-                <p class="color">${elem.productColors}</p>
-                <p class="price text-decoration-none">${elem.productPrice}.00 &euro;</p>
+                <h4 class="card-title name">${elem.productName}</h4>
+                <p class="color"> Couleurs : ${elem.productColors}</p>
+                <p class="price text-decoration-none">Prix : ${elem.productPrice}.00 &euro;</p>
                 <p class="quantity">Quantité: ${elem.productQuantity}</p>
             </div>
         </div>`;
